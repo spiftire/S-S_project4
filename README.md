@@ -33,3 +33,7 @@ $$
 total = p(venstre)+p(høyre)+p(opp)+p(ned)+p(i\space ro)\\
 p(ny) = p(old)+p(old)\times p(høyre)\div total
 $$
+
+## Implementeringsplan
+
+Jeg har en plan om å implementere denne simuleringen ved bruk av javaScript. Målet er å kunne simulere den i nettleser, men også kanskje å kunne lage den i en electron app.
