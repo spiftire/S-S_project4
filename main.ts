@@ -1,7 +1,7 @@
 let resolution = 40;
-let cols;
-let rows;
-let grid;
+let cols: number;
+let rows: number;
+let grid: any[];
 
 let chanses = {
     left: 20,
@@ -14,8 +14,8 @@ let chanses = {
 
 function setup() {
     createCanvas(600,400);
-    cols = width / resolution;
-    rows = height / resolution;
+    cols = windowWidth / resolution;
+    rows = windowHeight / resolution;
     grid = create2dgrid(cols, rows);
     populateGrid();
 }
@@ -45,7 +45,7 @@ function populateGrid() {
     }
 }
 
-function create2dgrid(cols, rows) {
+function create2dgrid(cols: number, rows: number) {
     let arr = new Array(cols);
     for (let col = 0; col < arr.length; col++) {
         arr[col] = new Array(rows);
