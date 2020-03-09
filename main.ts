@@ -3,6 +3,15 @@ let cols;
 let rows;
 let grid;
 
+let chanses = {
+    left: 20,
+    right: 20,
+    down: 30,
+    up: 5,
+    stay: 25
+};
+
+
 function setup() {
     createCanvas(600,400);
     cols = width / resolution;
