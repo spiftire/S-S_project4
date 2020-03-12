@@ -44,4 +44,3 @@ function create2dgrid(cols: number, rows: number) {
     }
     return arr;
 }
-
