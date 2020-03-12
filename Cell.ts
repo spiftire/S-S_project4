@@ -5,7 +5,7 @@ export class CellOfParticles {
     numberOfParticles: number;
     totalChance: number;
 
-    readonly TRESHOLD_FOR_SPLIT = 1000000;
+    readonly TRESHOLD_FOR_SPLIT = 1000;
 
     chances = {
         left: 20,
