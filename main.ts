@@ -1,21 +1,13 @@
-let resolution = 40;
+let resolution = 20;
 let cols: number;
 let rows: number;
 let grid: any[];
 
-let chanses = {
-    left: 20,
-    right: 20,
-    down: 30,
-    up: 5,
-    stay: 25
-};
-
 
 function setup() {
     createCanvas(600,400);
-    cols = windowWidth / resolution;
-    rows = windowHeight / resolution;
+    cols = floor(width / resolution);
+    rows = floor(height / resolution);
     grid = create2dgrid(cols, rows);
     populateGrid();
 }
@@ -31,7 +23,7 @@ function draw() {
             if(grid[i][j] == 1) {
                 fill(51);
                 stroke(0);
-                rect(x, y, resolution, resolution);
+                rect(x, y, resolution-1, resolution-1); // -1 pixle to get boarders
             }
         }
     }
@@ -52,3 +44,4 @@ function create2dgrid(cols: number, rows: number) {
     }
     return arr;
 }
+
