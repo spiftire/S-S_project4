@@ -1,9 +1,10 @@
-import { CellOfParticles } from "./Cell";
+import { CellOfParticles } from "./CellOfParticles";
 
 export class Simulator {
   readonly TRESHOLD_FOR_SPLIT = 1000;
   totalChanse = 0;
   cells: Array<CellOfParticles>;
+  grid : Array<Array<number>>;
 
   chances = {
     left: 20,
@@ -13,7 +14,8 @@ export class Simulator {
     stay: 25
   };
 
-  constructor(cells: Array<CellOfParticles>) {
+  constructor(cells: Array<CellOfParticles>, grid : Array<Array<number>>) {
+    this.grid = grid;
     this.cells = cells;
     this.totalChanse = this.sumUpChances(this.chances);
   }
