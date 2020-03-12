@@ -1,10 +1,11 @@
 import { CellOfParticles } from "./CellOfParticles";
+import { GridPosition } from "./GridPosition";
 
 export class Simulator {
   readonly TRESHOLD_FOR_SPLIT = 1000;
   totalChanse = 0;
   cells: Array<CellOfParticles>;
-  grid : Array<Array<number>>;
+  grid : Array<Array<CellOfParticles>>;
 
   chances = {
     left: 20,
@@ -14,7 +15,7 @@ export class Simulator {
     stay: 25
   };
 
-  constructor(cells: Array<CellOfParticles>, grid : Array<Array<number>>) {
+  constructor(cells: Array<CellOfParticles>, grid : Array<Array<CellOfParticles>>) {
     this.grid = grid;
     this.cells = cells;
     this.totalChanse = this.sumUpChances(this.chances);
@@ -38,7 +39,7 @@ export class Simulator {
 
   splitCell(numberToSplitAway: number, cell: CellOfParticles): CellOfParticles {
     cell.numberOfParticles -= numberToSplitAway;
-    return new CellOfParticles(numberToSplitAway);
+    return new CellOfParticles(numberToSplitAway, new GridPosition(0,0));
   }
 
   sumUpChances(chances: object): number {

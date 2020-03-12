@@ -1,7 +1,11 @@
+import { CellOfParticles } from "./CellOfParticles";
+import { GridPosition } from "./GridPosition";
+
 let resolution = 20;
 let cols: number;
 let rows: number;
 let grid: any[];
+let firstCell: CellOfParticles;
 
 
 function setup() {
@@ -9,9 +13,15 @@ function setup() {
     cols = floor(width / resolution);
     rows = floor(height / resolution);
     grid = create2dgrid(cols, rows);
-    populateGrid();
+    // populateGrid();
+    firstCell = new CellOfParticles(10000, new GridPosition(floor(rows /2 ), 0));
+
+    placeFirstCell(firstCell);
 }
 
+function placeFirstCell(cell:CellOfParticles) {
+    grid[cell.position.x][cell.position.y] = cell;
+}
 
 function draw() {
     background(255);
@@ -20,7 +30,7 @@ function draw() {
         for (let j = 0; j < rows; j++) {
             let x = i * resolution;
             let y = j * resolution;
-            if(grid[i][j] == 1) {
+            if(grid[i][j]) {
                 fill(51);
                 stroke(0);
                 rect(x, y, resolution-1, resolution-1); // -1 pixle to get boarders
